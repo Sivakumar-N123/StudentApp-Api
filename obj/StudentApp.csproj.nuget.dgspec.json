@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "G:\\.net api for angular\\StudentApp\\StudentApp\\StudentApp.csproj": {}
+    "E:\\Mahima\\StudentApp-Api\\StudentApp.csproj": {}
   },
   "projects": {
-    "G:\\.net api for angular\\StudentApp\\StudentApp\\StudentApp.csproj": {
+    "E:\\Mahima\\StudentApp-Api\\StudentApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\.net api for angular\\StudentApp\\StudentApp\\StudentApp.csproj",
+        "projectUniqueName": "E:\\Mahima\\StudentApp-Api\\StudentApp.csproj",
         "projectName": "StudentApp",
-        "projectPath": "G:\\.net api for angular\\StudentApp\\StudentApp\\StudentApp.csproj",
-        "packagesPath": "C:\\Users\\Sivakumar\\.nuget\\packages\\",
-        "outputPath": "G:\\.net api for angular\\StudentApp\\StudentApp\\obj\\",
+        "projectPath": "E:\\Mahima\\StudentApp-Api\\StudentApp.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "E:\\Mahima\\StudentApp-Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Sivakumar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -73,7 +73,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     }
