@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using StudentApp.Data;
+using StudentApp.Models;
+using StudentApp.ViewModel;
 
 namespace StudentApp.Controllers
 {
@@ -22,12 +24,18 @@ namespace StudentApp.Controllers
         }
 
         //[HttpPost]
-        //public async Task<IActionResult> AddCourse[FromBody] Course courseRequest)
-        //    {
-        //         courseRequest.Id = Guid.NewGuid(); 
 
-        //         _studentAppDBContext.Course.Addsync(courseRequest);
-             
-        //    }
+        //public async Task<IActionResult> AddCourses([FromBody] CourseDetailsViewModel courseRequest)
+        //{
+        //    courseRequest.CourseId = Guid.NewGuid();
+        //    await _studentAppDBContext.Courses.AddAsync(courseRequest);
+        //    await _studentAppDBContext.SaveChangesAsync();
+        //    return Ok(courseRequest);
+
+        //}
     }
- }
+
+  
+}
+
+ 

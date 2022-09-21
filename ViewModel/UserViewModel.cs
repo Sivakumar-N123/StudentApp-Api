@@ -5,7 +5,7 @@ namespace StudentApp.ViewModel
     public class UserViewModel
     {
         [Key]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         [Required]
         public string User { get; set; }
         [Required]
