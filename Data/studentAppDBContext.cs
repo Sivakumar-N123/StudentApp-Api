@@ -8,6 +8,8 @@ namespace StudentApp.Data
 {
     public class StudentAppDBContext: DbContext
     {
+        internal object Courses;
+
         public StudentAppDBContext(DbContextOptions<StudentAppDBContext>options): base(options)
         {
                 
