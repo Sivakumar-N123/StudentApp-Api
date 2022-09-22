@@ -6,7 +6,7 @@ using StudentApp.ViewModel;
 namespace StudentApp.Controllers
 {
     [ApiController]
-    [Route("api/[Controller]")]
+    [Route( "api/[Controller]")]
     public class UserController : Controller
     {
         private readonly StudentAppDBContext _studentAppDBContext;
@@ -21,13 +21,32 @@ namespace StudentApp.Controllers
             return Ok(students);
         }
 
-        //[HttpPost]
-        //public async Task<IActionResult> AddNewUser([FromBody] UserViewModel userView)
-        //{
-        //    userView.Id = Guid.NewGuid();
 
-
-        //}
-
+        [HttpPost]
+        public async Task<IActionResult> AddUser([FromBody] UserViewModel userView )
+        {
+            userView.Id = Guid.NewGuid();
+            await _studentAppDBContext.UserTable.AddAsync(userView);
+            await _studentAppDBContext.SaveChangesAsync();
+            return Ok(userView);
+        }
+        [HttpPut]
+        [Route("{id:Guid}")]
+        public async Task<IActionResult> EditUser([FromRoute]Guid id, UserViewModel userView)
+        {
+            var user = await _studentAppDBContext.UserTable.FindAsync(id); 
+            if(user==null)
+            {
+                return NotFound();
+            }
+            user.UserName = userView.UserName;
+            user.Email = userView.Email;
+            user.IsStudent = userView.IsStudent;
+            user.Password = userView.Password;
+            user.IsActive = user.IsActive;
+            await _studentAppDBContext.SaveChangesAsync();
+            return Ok(user);
+        }
+       
     }
 }

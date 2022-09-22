@@ -12,10 +12,10 @@ namespace StudentApp.ViewModel
         [DataType(DataType.EmailAddress)]
         [EmailAddress]
         public string Email { get; set; }
-        [Required]
-        public string Password { get; set; }
-        [Required]
-        public bool IsStudent { get; set; } = true; 
+
+        public string Password { get; set; } = "Password@123";
+
+        public bool IsStudent { get; set; } = true;
         public bool IsActive { get; set; } = true;
     }
 }
