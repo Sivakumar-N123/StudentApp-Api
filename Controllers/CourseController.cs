@@ -6,7 +6,7 @@ using StudentApp.ViewModel;
 namespace StudentApp.Controllers
 {
     [ApiController]
-    [Route("api/course")]
+    [Route("api/course")] 
     public class CourseController : Controller
     {
         private readonly StudentAppDBContext _studentAppDBContext;

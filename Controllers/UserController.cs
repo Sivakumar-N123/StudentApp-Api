@@ -47,6 +47,23 @@ namespace StudentApp.Controllers
             await _studentAppDBContext.SaveChangesAsync();
             return Ok(user);
         }
-       
+
+        [HttpDelete]
+        [Route("{id:Guid}")]
+        public async Task<IActionResult> DeleteUser([FromRoute] Guid id)
+        {
+            var user = await _studentAppDBContext.UserTable.FindAsync(id);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            _studentAppDBContext.UserTable.Remove(user);
+            await _studentAppDBContext.SaveChangesAsync();
+
+            return Ok(user);
+        }
+
     }
 }
