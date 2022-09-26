@@ -8,7 +8,6 @@ namespace StudentApp.ViewModel
         public Guid CourseId { get; set; }
         [Required]
         public string CourseName { get; set; }
-       
         
     }
 }

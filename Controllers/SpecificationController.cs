@@ -59,7 +59,6 @@ namespace StudentApp.Controllers
         public async Task<IActionResult> DeleteSpecificaton([FromRoute] Guid id)
         {
            var specificaton = await _studentAppDBContext.SpecificationTable.FindAsync(id);
-
            if (specificaton == null)
            {
                return NotFound();
