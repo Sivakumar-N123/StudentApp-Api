@@ -9,6 +9,5 @@ namespace StudentApp.ViewModel
         [Required]
         public string CourseName { get; set; }
        
-        
     }
 }

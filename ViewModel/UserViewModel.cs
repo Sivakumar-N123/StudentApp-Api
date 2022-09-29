@@ -6,16 +6,15 @@ namespace StudentApp.ViewModel
     {
         [Key]
         public Guid Id { get; set; }
-        [Required]
         public string UserName { get; set; }
-        [Required]
         [DataType(DataType.EmailAddress)]
         [EmailAddress]
         public string Email { get; set; }
-
         public string Password { get; set; } = "Password@123";
-
+        public byte[] ProfileImage { get; set; } 
         public bool IsStudent { get; set; } = true;
         public bool IsActive { get; set; } = true;
+        public bool IsVerify { get; set; } = false;
+
     }
 }

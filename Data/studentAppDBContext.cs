@@ -18,5 +18,7 @@ namespace StudentApp.Data
         public DbSet<UserViewModel> UserTable { get; set; }
         public DbSet<SpecificationViewModel> SpecificationTable { get; set; }
         public DbSet<CourseDetailsViewModel> CourseDetailsTable { get; set; }
+        public DbSet<SpecCourseViewModel> SpecCourseTable { get; set; }
+        //public object SpecCourseTable { get; internal set; }
     }
 }
