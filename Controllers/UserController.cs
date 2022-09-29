@@ -21,6 +21,15 @@ namespace StudentApp.Controllers
             return Ok(students);
         }
 
+        [HttpGet]
+        [Route("{name}")]
+   
+        public async Task<IActionResult> Index([FromRoute] string name)
+        {
+            var emp = await _studentAppDBContext.UserTable.FirstOrDefaultAsync(e => e.Email == name);
+            return Ok(emp);
+        }
+
 
         [HttpPost]
         public async Task<IActionResult> AddUser([FromBody] UserViewModel userView )
@@ -41,16 +50,16 @@ namespace StudentApp.Controllers
             }
             user.UserName = userView.UserName;
             user.Email = userView.Email;
+            //user.ProfileImage = Convert.FromBase64String(userView.ProfileImage);
             user.IsStudent = userView.IsStudent;
             user.Password = userView.Password;
-            user.IsActive = user.IsActive;
+            user.IsActive = userView.IsActive;
             await _studentAppDBContext.SaveChangesAsync();
             return Ok(user);
         }
-
         [HttpDelete]
         [Route("{id:Guid}")]
-        public async Task<IActionResult> DeleteUser([FromRoute] Guid id)
+        public async Task<IActionResult> DeleteUser([FromRoute] Guid id, UserViewModel userView)
         {
             var user = await _studentAppDBContext.UserTable.FindAsync(id);
 
@@ -59,11 +68,35 @@ namespace StudentApp.Controllers
                 return NotFound();
             }
 
-            _studentAppDBContext.UserTable.Remove(user);
+            user.UserName = userView.UserName;
+            user.Email = userView.Email;
+            user.IsStudent = userView.IsStudent;
+            user.Password = userView.Password;
+            user.IsActive = false;
             await _studentAppDBContext.SaveChangesAsync();
 
             return Ok(user);
         }
+
+        [HttpPut]
+        [Route("{Email}")]
+        public async Task<IActionResult> EditUser([FromRoute]string Email, UserViewModel userView)
+        {
+            var user = await _studentAppDBContext.UserTable.FirstOrDefaultAsync(e => e.Email == Email);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            user.UserName = userView.UserName;
+           
+            user.IsStudent = userView.IsStudent;
+            user.Password = userView.Password;
+            user.IsActive = userView.IsActive;
+            await _studentAppDBContext.SaveChangesAsync();
+            return Ok(user);
+        }
+
+      
 
     }
 }
