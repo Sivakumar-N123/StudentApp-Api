@@ -35,6 +35,14 @@ namespace StudentApp.Controllers
         public async Task<IActionResult> AddUser([FromBody] UserViewModel userView )
         {
             userView.Id = Guid.NewGuid();
+           
+            string[] output = userView.UserName.Split(' ');
+            string profilestring="";
+            foreach (string s in output)
+            {
+                profilestring = profilestring + s[0];
+            }
+            //userView.ProfileImage = profilestring;
             await _studentAppDBContext.UserTable.AddAsync(userView);
             await _studentAppDBContext.SaveChangesAsync();
             return Ok(userView);
@@ -48,6 +56,7 @@ namespace StudentApp.Controllers
             {
                 return NotFound();
             }
+
             user.UserName = userView.UserName;
             user.Email = userView.Email;
             //user.ProfileImage = Convert.FromBase64String(userView.ProfileImage);
