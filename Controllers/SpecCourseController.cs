@@ -45,10 +45,10 @@ namespace StudentApp.Controllers
             {
                 return NotFound();
             }
-
+            SpecCourse.CourseId = updateSpecCourseRequest.CourseId;
+            SpecCourse.CourseName = updateSpecCourseRequest.CourseName;
+            SpecCourse.SpecificationId = updateSpecCourseRequest.SpecificationId;
             SpecCourse.SpecificationName = updateSpecCourseRequest.SpecificationName;
-
-
             await _studentAppDBContext.SaveChangesAsync();
 
             return Ok(SpecCourse);
@@ -69,5 +69,6 @@ namespace StudentApp.Controllers
 
             return Ok(specCourse);
         }
+      
     }
 }
