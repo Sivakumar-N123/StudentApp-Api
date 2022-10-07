@@ -26,7 +26,7 @@ namespace StudentApp.Controllers
 
         [HttpPost]
 
-        public async Task<IActionResult> PutUserCourseDet([FromBody] UserCourseDet getdata)
+        public async Task<IActionResult> PutUserCourseDet([FromBody] UserCourseDetViewModel getdata)
         {
             getdata.Id = Guid.NewGuid();
             await _studentAppDBContext.CourseDet.AddAsync(getdata);
@@ -53,7 +53,7 @@ namespace StudentApp.Controllers
 
         [HttpPut]
         [Route("{id:Guid}")]
-        public async Task<IActionResult> UpdateSpecCourse([FromRoute] Guid id, UserCourseDet updateUserCourseDet)
+        public async Task<IActionResult> UpdateSpecCourse([FromRoute] Guid id, UserCourseDetViewModel updateUserCourseDet)
         {
 
             var UpdateCourse = await _studentAppDBContext.CourseDet.FindAsync(id);

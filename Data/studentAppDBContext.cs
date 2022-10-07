@@ -6,19 +6,19 @@ using StudentApp.ViewModel;
 
 namespace StudentApp.Data
 {
-    public class StudentAppDBContext: DbContext
+    public class StudentAppDBContext : DbContext
     {
         internal readonly object Course;
         internal object Courses;
 
-        public StudentAppDBContext(DbContextOptions<StudentAppDBContext>options): base(options)
+        public StudentAppDBContext(DbContextOptions<StudentAppDBContext> options) : base(options)
         {
-                
+
         }
         public DbSet<UserViewModel> UserTable { get; set; }
         public DbSet<SpecificationViewModel> SpecificationTable { get; set; }
         public DbSet<CourseDetailsViewModel> CourseDetailsTable { get; set; }
         public DbSet<SpecCourseViewModel> SpecCourseTable { get; set; }
-        //public object SpecCourseTable { get; internal set; }
+        public DbSet<UserCourseDetViewModel> CourseDet { get; set; }
     }
 }
