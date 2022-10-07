@@ -23,6 +23,14 @@ namespace StudentApp.Controllers
             var det = await _studentAppDBContext.CourseDet.ToListAsync();
             return Ok(det);
         }
+        [HttpGet]
+        [Route("{name}")]
+
+        public async Task<IActionResult> Index([FromRoute] string name)
+        {
+            var emp = await _studentAppDBContext.SpecCourseTable.Where(e => e.CourseName == name).ToListAsync();
+            return Ok(emp);
+        }
 
         [HttpPost]
 
