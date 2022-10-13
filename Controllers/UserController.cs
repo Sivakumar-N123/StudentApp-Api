@@ -17,36 +17,28 @@ namespace StudentApp.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllStudentlist()
         {
-            var students = await _studentAppDBContext.UserTable.ToListAsync();
+            var students = await _studentAppDBContext.UserTable.Where(e => e.IsActive != false).ToListAsync();
+
             return Ok(students);
         }
 
         [HttpGet]
         [Route("{name}")]
-   
         public async Task<IActionResult> Index([FromRoute] string name)
         {
             var emp = await _studentAppDBContext.UserTable.FirstOrDefaultAsync(e => e.Email == name);
             return Ok(emp);
         }
 
-
         [HttpPost]
         public async Task<IActionResult> AddUser([FromBody] UserViewModel userView )
-        {
-            userView.Id = Guid.NewGuid();
-           
-            string[] output = userView.UserName.Split(' ');
-            string profilestring="";
-            foreach (string s in output)
-            {
-                profilestring = profilestring + s[0];
-            }
-            //userView.ProfileImage = profilestring;
+        {   
+      
             await _studentAppDBContext.UserTable.AddAsync(userView);
             await _studentAppDBContext.SaveChangesAsync();
             return Ok(userView);
         }
+
         [HttpPut]
         [Route("{id:Guid}")]
         public async Task<IActionResult> EditUser([FromRoute]Guid id, UserViewModel userView)
@@ -59,13 +51,14 @@ namespace StudentApp.Controllers
 
             user.UserName = userView.UserName;
             user.Email = userView.Email;
-            //user.ProfileImage = Convert.FromBase64String(userView.ProfileImage);
+          
             user.IsStudent = userView.IsStudent;
             user.Password = userView.Password;
             user.IsActive = userView.IsActive;
             await _studentAppDBContext.SaveChangesAsync();
             return Ok(user);
         }
+
         [HttpDelete]
         [Route("{id:Guid}")]
         public async Task<IActionResult> DeleteUser([FromRoute] Guid id, UserViewModel userView)
