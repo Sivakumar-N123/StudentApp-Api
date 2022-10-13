@@ -4,8 +4,17 @@ namespace StudentApp.ViewModel
 {
     public class UserViewModel
     {
+        public const string CustomerPrefix = "2022ST";
+
         [Key]
-        public Guid Id { get; set; }
+        public int Id { get; set; }
+
+        public string CustomerId
+        {
+            get { return string.Concat(CustomerPrefix, Id); }
+            set { }
+        }
+
         public string UserName{ get; set; }
         [DataType(DataType.EmailAddress)]
         [EmailAddress]
@@ -14,7 +23,7 @@ namespace StudentApp.ViewModel
         public byte[]? ProfileImage { get; set; }
         public bool IsStudent { get; set; } = true;
         public bool IsActive { get; set; } = true;
-        public bool IsVerify { get; set; } = false;
+        public bool IsVerify { get; set; } = false; 
 
     }
 }
