@@ -49,7 +49,7 @@ namespace StudentApp.Controllers
                 return NotFound();
             }
 
-            user.UserName = userView.UserName;
+            user.StudentName = userView.StudentName;
             user.Email = userView.Email;
             user.IsStudent = userView.IsStudent;
             user.Password = userView.Password;
@@ -69,7 +69,7 @@ namespace StudentApp.Controllers
                 return NotFound();
             }
 
-            user.UserName = userView.UserName;
+            user.StudentName = userView.StudentName;
             user.Email = userView.Email;
             user.IsStudent = userView.IsStudent;
             user.Password = userView.Password;
@@ -88,7 +88,7 @@ namespace StudentApp.Controllers
             {
                 return NotFound();
             }
-            user.UserName = userView.UserName;
+            user.StudentName = userView.StudentName;
             user.IsStudent = userView.IsStudent;
             user.Password = userView.Password;
             user.IsActive = userView.IsActive;

@@ -4,18 +4,18 @@ namespace StudentApp.ViewModel
 {
     public class UserViewModel
     {
-        public const string CustomerPrefix = "2022ST";
+        public const string StudentPrefix = "2022ST";
 
         [Key]
         public int Id { get; set; }
 
-        public string CustomerId
+        public string StudentId
         {
-            get { return string.Concat(CustomerPrefix, Id); }
+            get { return string.Concat(StudentPrefix, Id); }
             set { }
         }
 
-        public string UserName{ get; set; }
+        public string StudentName{ get; set; }
         [DataType(DataType.EmailAddress)]
         [EmailAddress]
         public string Email { get; set; }

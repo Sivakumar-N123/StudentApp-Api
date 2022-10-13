@@ -70,8 +70,8 @@ namespace StudentApp.Controllers
             {
                 return NotFound();
             }
-
-            UpdateCourse.username = updateUserCourseDet.username;
+            UpdateCourse.studentId = updateUserCourseDet.studentId;
+            UpdateCourse.StudentName = updateUserCourseDet.StudentName;
             UpdateCourse.Course = updateUserCourseDet.Course;
             UpdateCourse.Spec = updateUserCourseDet.Spec;
 
