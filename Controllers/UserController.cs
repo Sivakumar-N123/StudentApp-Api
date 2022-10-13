@@ -40,8 +40,8 @@ namespace StudentApp.Controllers
         }
 
         [HttpPut]
-        [Route("{id:Guid}")]
-        public async Task<IActionResult> EditUser([FromRoute]Guid id, UserViewModel userView)
+        [Route("{id:}")]
+        public async Task<IActionResult> EditUser([FromRoute]int id, UserViewModel userView)
         {
             var user = await _studentAppDBContext.UserTable.FindAsync(id); 
             if(user==null)
@@ -51,7 +51,6 @@ namespace StudentApp.Controllers
 
             user.UserName = userView.UserName;
             user.Email = userView.Email;
-          
             user.IsStudent = userView.IsStudent;
             user.Password = userView.Password;
             user.IsActive = userView.IsActive;
@@ -60,8 +59,8 @@ namespace StudentApp.Controllers
         }
 
         [HttpDelete]
-        [Route("{id:Guid}")]
-        public async Task<IActionResult> DeleteUser([FromRoute] Guid id, UserViewModel userView)
+        [Route("{id:int}")]
+        public async Task<IActionResult> DeleteUser([FromRoute] int id, UserViewModel userView)
         {
             var user = await _studentAppDBContext.UserTable.FindAsync(id);
 
@@ -90,7 +89,6 @@ namespace StudentApp.Controllers
                 return NotFound();
             }
             user.UserName = userView.UserName;
-           
             user.IsStudent = userView.IsStudent;
             user.Password = userView.Password;
             user.IsActive = userView.IsActive;
