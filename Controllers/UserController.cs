@@ -40,7 +40,7 @@ namespace StudentApp.Controllers
         }
 
         [HttpPut]
-        [Route("{id:}")]
+        [Route("{id:int}")]
         public async Task<IActionResult> EditUser([FromRoute]int id, UserViewModel userView)
         {
             var user = await _studentAppDBContext.UserTable.FindAsync(id); 
